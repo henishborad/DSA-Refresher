@@ -2,7 +2,22 @@
 using namespace std;
 
 int main() {
-
+    int input;
+    cout << "Enter the number to check if prime or not: ";
+    cin >> input;
+    int divisor = 2;
+    bool isPrime = true;
+    while (divisor != input-1) {
+        if (input % divisor != 0) {
+            divisor++;
+        }
+        else {
+            cout << "Input is not a prime number.";
+            
+            break;
+        }
+        cout << "Prime";
+    }
     return 0;
 }
 
