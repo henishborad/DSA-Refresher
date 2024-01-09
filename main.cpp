@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
     int input;
-    cout << "Enter the number to check if prime or not: ";
+    cout << "Enter the number to check if prime or not:";
     cin >> input;
     int divisor = 2;
     bool isPrime = true;
@@ -17,7 +17,7 @@ int main() {
             break;
         }
     }
-    if (isPrime == true) {
+    if (isPrime) {
         cout << "Prime input!";
     }
     return 0;
