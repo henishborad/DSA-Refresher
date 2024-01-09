@@ -1,14 +1,5 @@
 #include <iostream>
 using namespace std;
-/*
- * a = 1
- * b = 2
- *
- * sum = a + b
- * a = b
- * b = sum
- *
- * */
 
 int main() {
     int a = 1;
