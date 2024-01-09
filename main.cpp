@@ -13,10 +13,12 @@ int main() {
         }
         else {
             cout << "Input is not a prime number.";
-            
+            isPrime = false;
             break;
         }
-        cout << "Prime";
+    }
+    if (isPrime == true) {
+        cout << "Prime input!";
     }
     return 0;
 }
