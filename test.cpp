@@ -1,39 +1,34 @@
-// COMPARE TWO
 #include <iostream>
 #include <vector>
+#include <string>
 #include <unordered_map>
 #include <unordered_set>
-#include <string>
 
 using namespace std;
 
 string solution(vector<string> commands) {
     unordered_map<string, unordered_set<string>> buckets;
     string current_bucket;
-
+    
     for (const string& command : commands) {
-        if (command.substr(0, 5) == "goto ") {
-            // Extract the bucket name
+        if (command.rfind("goto ", 0) == 0) {
             current_bucket = command.substr(5);
-        } else if (command.substr(0, 7) == "create ") {
-            // Extract the file name
+        } else if (command.rfind("create ", 0) == 0) {
             string filename = command.substr(7);
-            // Create the file in the current bucket
             buckets[current_bucket].insert(filename);
         }
     }
-
-    // Determine the bucket with the largest number of files
+    
     string largest_bucket;
     size_t max_files = 0;
-
-    for (const auto& pair : buckets) {
-        if (pair.second.size() > max_files) {
-            max_files = pair.second.size();
-            largest_bucket = pair.first;
+    
+    for (const auto& bucket : buckets) {
+        if (bucket.second.size() > max_files) {
+            largest_bucket = bucket.first;
+            max_files = bucket.second.size();
         }
     }
-
+    
     return largest_bucket;
 }
 
@@ -49,6 +44,8 @@ int main() {
         "create fileB",
         "create fileC"
     };
+    cout << solution(commands1) << endl; // should output "bucketC"
+    
     vector<string> commands2 = {
         "goto bar",
         "create foo",
@@ -58,9 +55,7 @@ int main() {
         "goto bar",
         "create bar"
     };
-
-    cout << solution(commands1) << endl; // Output: "bucketC"
-    cout << solution(commands2) << endl; // Output: "bar"
-
+    cout << solution(commands2) << endl; // should output "bar"
+    
     return 0;
 }

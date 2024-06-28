@@ -1,5 +1,9 @@
+
+
 from datetime import datetime, timedelta
+
 def solution(schedule, time):
+
     try:
         current_time = datetime.strptime(time, "%H:%M")
     except ValueError:
@@ -30,7 +34,6 @@ def solution(schedule, time):
 
     return minutes
 
-
 # Test cases
 def test_solution():
     assert solution(["10:00"], "10:01") == 1  # Best case (departure just before)
@@ -40,6 +43,6 @@ def test_solution():
     assert solution(["14:32", "invalid_time"], "15:00") == -1  # Invalid time format
     assert solution(None, "16:10") == -1  # Invalid schedule (None)
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     test_solution()
-    print("All tests passed!")
+    print("All tests passed!")
