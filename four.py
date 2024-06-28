@@ -24,4 +24,7 @@ def count_subarrays_with_k_pairs(numbers, k):
             if pairs >= k:
                 result += 1
 
+        if pairs < k:
+            break
+
     return result
