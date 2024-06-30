@@ -1,21 +1,12 @@
-arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+arr = [0, 1, 0, 1, 1, 0, 1]
+l = 0
+r = len(arr) - 1
 
-rows = 3
-cols = 3
-
-transpose = [[None for _ in range(cols)] for _ in range(rows)]
-
-# arr1 = []
-
-# for i in range(len(arr)):
-#     for j in range(len(arr)):
-#         transpose[i][j] = arr[j][i]
-
-for i in range(len(arr)):
-    for j in range(i+1 ,len(arr[0])):
-        temp = arr[i][j]        
-        arr[i][j] = arr[j][i]
-        arr[j][i] = temp
+while l < r:
+    if arr[l] == 1 and arr[r] == 0:
+        arr[l], arr[r] = arr[r], arr[l]
+    l += 1
+    r -= 1
 
 
 for i in arr:
